@@ -5,68 +5,50 @@
   },
   "projects": [
     {
-      "id": 1,
-      "projects_name": "Logo of a Junior",
+      "projects_name": "Logo for Morphis",
       "project_type": "logo",
-      "total_amount": 76,
-      "total_due": null,
-      "total_paid": 76,
-      "date_of_register": "",
-      "project_status": null,
-      "designer": null,
-      "paid_to_designer": null
-    },
-    {
-      "id": 1,
-      "projects_name": "Logo of a Junior",
-      "project_type": "logo",
-      "total_amount": 76,
-      "total_due": null,
-      "total_paid": 76,
-      "date_of_register": "",
-      "project_status": null,
-      "designer": null,
-      "paid_to_designer": null
-    },
-    {
-      "projects_name": "Project bannni",
-      "project_type": "logo",
-      "total_amount": 662,
-      "total_due": 604,
-      "total_paid": 58,
+      "total_amount": 100,
+      "total_due": 50,
+      "total_paid": 50,
       "date_of_register": "2020-05-10T18:30:00-00:00",
       "project_status": null,
       "designer": "D003",
-      "paid_to_designer": 100,
+      "paid_to_designer": 20,
+      "id": 1
+    },
+    {
+      "projects_name": "Forward Postioning",
+      "project_type": "maskot",
+      "total_amount": 200,
+      "total_due": 150,
+      "total_paid": 50,
+      "date_of_register": "2020-05-10T18:30:00-00:00",
+      "project_status": null,
+      "designer": "D001",
+      "paid_to_designer": 30,
       "id": 2
+    },
+    {
+      "projects_name": "Faced for the documentation willy",
+      "project_type": "logo",
+      "total_amount": 500,
+      "total_due": 480,
+      "total_paid": 20,
+      "date_of_register": "2020-05-10T18:30:00-00:00",
+      "project_status": null,
+      "designer": "D04",
+      "paid_to_designer": 22,
+      "id": 3
     }
   ],
-  "designers": {
-    "designer": [
-      {
-        "id": 22,
-        "designer": "Johnson",
-        "designer_code": "D02",
-        "reward": true,
-        "reward_point": 4,
-        "earned": 0
-      },
-      {
-        "id": 23,
-        "designer": "Rashmita",
-        "designer_code": "D03",
-        "reward": true,
-        "reward_point": 0,
-        "earned": 0
-      },
-      {
-        "id": 24,
-        "designer": "Kale Brisker",
-        "designer_code": "D04",
-        "reward": true,
-        "reward_point": 0,
-        "earned": 0
-      }
-    ]
-  }
+  "designers": [
+    {
+      "designer": "KolposRader",
+      "designer_code": "D1205",
+      "reward": 34,
+      "designer_reg_date": "2020-05-10T16:04:35.791-00:00",
+      "earned": 20,
+      "id": 1
+    }
+  ]
 }

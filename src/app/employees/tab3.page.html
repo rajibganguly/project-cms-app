@@ -6,12 +6,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Send details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div class="p3" *ngIf="designers.length > 0">
+    <h4>Lists of Registered employees</h4>
+    <div *ngFor="let de of designers" class="p1 custocard">
+      <p>
+        He is <ion-text color="danger"><strong>{{de.designer}}</strong></ion-text> and his registration date is <ion-text color="primary"><i>{{de.designer_reg_date}}</i></ion-text> 
+        and perfection count is <ion-text color="danger">{{de.earned}}</ion-text> by multiple projects.
+      </p>
+      <ion-button (click)="deleteEmployee(de)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </div> 
+</div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
-</ion-content>
+
+<div class="p3">
+  <h4>New Employee Registration</h4>
+  <form [formGroup]="employe" (ngSubmit)="addEmpForm()">
+    <ion-item>
+      <ion-label>Employee Name</ion-label>
+      <ion-input type="text" formControlName="employeeName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Employee Code</ion-label>
+      <ion-input type="text" formControlName="employeeCode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Reward Point</ion-label>
+      <ion-input type="number" formControlName="rewardPoint"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date of registration</ion-label>
+      <ion-datetime displayFormat="YYYY/MM/DD" value="2020-05-10" display-timezone="utc" formControlName="employeeDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Earned <strong>Rupees</strong></ion-label>
+      <ion-input type="number" formControlName="earned"></ion-input>
+    </ion-item>  
+    <ion-item>
+      <ion-button type="submit" size="medium" [disabled]="!employe.valid" color="primary">Submit</ion-button>
+      <ion-button type="button" size="medium" href="../" color="secondary">Cancel</ion-button>
+    </ion-item> 
+    
+  </form>
+  
+</div> 
+    
+    
+ 
+  

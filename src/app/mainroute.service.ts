@@ -27,6 +27,14 @@ export class MainrouteService {
   }
 
   getAllDesigners() {
-    return this.http.get<any>(this.designers);
+    return this.http.get<any>(this.designers +'/');
+  }
+
+  registerNewDesigners(data: object) {
+    return this.http.post<any>(this.designers, data).subscribe((data)=> {
+      console.log(data);
+    }, (error) => {
+      console.log(error)
+    });
   }
 }

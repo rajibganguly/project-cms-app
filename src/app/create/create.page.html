@@ -37,11 +37,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Total Amount</ion-label>
+      <ion-label>Total Amount <strong>USD</strong></ion-label>
       <ion-input type="number" formControlName="projectTotalAmount"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Paid</ion-label>
+      <ion-label>Paid <strong>USD</strong></ion-label>
       <ion-input type="number" formControlName="projectTotalPaid"></ion-input>
     </ion-item>
 
@@ -49,11 +49,9 @@
     <ion-item>
       <ion-label>Designer`s Name</ion-label>
       <ion-select placeholder="Select One" formControlName="designerName">
-        <ion-select-option value="D001">Nilesh</ion-select-option>
-        <ion-select-option value="D002">Mukesh</ion-select-option>
-        <ion-select-option value="D003">Bhavik</ion-select-option>
-        <ion-select-option value="D004">Gora</ion-select-option>
-        <ion-select-option value="D005">Suchandra</ion-select-option>
+        <div *ngFor="let d of designers">
+          <ion-select-option [value]="d.designer_code">{{d.designer}}</ion-select-option>
+        </div>
       </ion-select>
     </ion-item> 
     <ion-item>

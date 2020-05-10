@@ -30,9 +30,13 @@ export class CreatePage implements OnInit {
   }
 
   ngOnInit() {
-    return this.mainservice.getAllProjects().subscribe((data) => {
+    this.mainservice.getAllProjects().subscribe((data) => {
       this.projects = data;
     });
+    this.mainservice.getAllDesigners().subscribe((data) => {
+      this.designers = data;
+      console.log(this.designers);
+    })
     
   }
 

@@ -11,7 +11,7 @@
   <ion-item>
   <ion-button fill="outline" slot="end" size="small" href="/create"><ion-icon name="add-outline"></ion-icon> Create Project</ion-button>
   </ion-item>
-  <ion-card>
+  <ion-card *ngIf="projects.length > 0">
     <ion-item *ngFor="let x of projects">
       <ion-label>
         <h3>{{x.projects_name}}</h3>
@@ -21,7 +21,9 @@
     </ion-item>
     
   </ion-card>
-
+  <div *ngIf="projects.length == 0">
+    <p class="p4">No project yet!</p>
+</div>
   
 </ion-content>
 

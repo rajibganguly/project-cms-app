@@ -24,3 +24,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+$size1: 0.5rem; 
+.p1 {
+    padding: 1*$size1;
+}
+.p2 {
+    padding: 2*$size1;
+}
+.p3 {
+    padding: 3*$size1;
+}
+.p4 {
+    padding: 4*$size1;
+}
+.custocard {
+    background: #f2f2f2;
+    border: 1px solid #fff;
+}
+p {
+    font-size: 3*$size1;
+}
