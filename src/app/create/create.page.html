@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button slot="end" size="small" href="/tabs/projects">Back</ion-button>
+    </ion-buttons>
+    <ion-title>Create Project</ion-title>
+  </ion-toolbar>
+
+
+    
+    
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Project Name</ion-label>
+      <ion-input type="text" formControlName="projectName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Project State</ion-label>
+      <ion-select placeholder="Select One" formControlName="projectStatus">
+        <ion-select-option value="logo">New</ion-select-option>
+        <ion-select-option value="maskot">Redo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Project Type</ion-label>
+      <ion-select placeholder="Select One" formControlName="projectType">
+        <ion-select-option value="logo">Logo</ion-select-option>
+        <ion-select-option value="maskot">Maskot</ion-select-option>
+        <ion-select-option value="website">Website Design</ion-select-option>
+        <ion-select-option value="business card">Business Card</ion-select-option>
+        <ion-select-option value="others">Others</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="YYYY/MM/DD" value="2020-05-10" display-timezone="utc" formControlName="projectDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Total Amount</ion-label>
+      <ion-input type="number" formControlName="projectTotalAmount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Paid</ion-label>
+      <ion-input type="number" formControlName="projectTotalPaid"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label>Designer`s Name</ion-label>
+      <ion-select placeholder="Select One" formControlName="designerName">
+        <ion-select-option value="D001">Nilesh</ion-select-option>
+        <ion-select-option value="D002">Mukesh</ion-select-option>
+        <ion-select-option value="D003">Bhavik</ion-select-option>
+        <ion-select-option value="D004">Gora</ion-select-option>
+        <ion-select-option value="D005">Suchandra</ion-select-option>
+      </ion-select>
+    </ion-item> 
+    <ion-item>
+      <ion-label>Paid to designer</ion-label>
+      <ion-input type="number" formControlName="paidToDesigner"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-input type="text" formControlName="projectDescription"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit" size="medium" [disabled]="!todo.valid" color="primary">Submit</ion-button>
+      <ion-button type="button" size="medium" href="../" color="secondary">Cancel</ion-button>
+    </ion-item>
+    
+  </form>
+    
+    
+ 
+

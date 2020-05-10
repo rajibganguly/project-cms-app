@@ -1,0 +1,72 @@
+{
+  "flags": {
+    "employer_enrollment": true,
+    "employee_enrollment": false
+  },
+  "projects": [
+    {
+      "id": 1,
+      "projects_name": "Logo of a Junior",
+      "project_type": "logo",
+      "total_amount": 76,
+      "total_due": null,
+      "total_paid": 76,
+      "date_of_register": "",
+      "project_status": null,
+      "designer": null,
+      "paid_to_designer": null
+    },
+    {
+      "id": 1,
+      "projects_name": "Logo of a Junior",
+      "project_type": "logo",
+      "total_amount": 76,
+      "total_due": null,
+      "total_paid": 76,
+      "date_of_register": "",
+      "project_status": null,
+      "designer": null,
+      "paid_to_designer": null
+    },
+    {
+      "projects_name": "Project bannni",
+      "project_type": "logo",
+      "total_amount": 662,
+      "total_due": 604,
+      "total_paid": 58,
+      "date_of_register": "2020-05-10T18:30:00-00:00",
+      "project_status": null,
+      "designer": "D003",
+      "paid_to_designer": 100,
+      "id": 2
+    }
+  ],
+  "designers": {
+    "designer": [
+      {
+        "id": 22,
+        "designer": "Johnson",
+        "designer_code": "D02",
+        "reward": true,
+        "reward_point": 4,
+        "earned": 0
+      },
+      {
+        "id": 23,
+        "designer": "Rashmita",
+        "designer_code": "D03",
+        "reward": true,
+        "reward_point": 0,
+        "earned": 0
+      },
+      {
+        "id": 24,
+        "designer": "Kale Brisker",
+        "designer_code": "D04",
+        "reward": true,
+        "reward_point": 0,
+        "earned": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Projects 
+    </ion-title>  
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+  <ion-button fill="outline" slot="end" size="small" href="/create"><ion-icon name="add-outline"></ion-icon> Create Project</ion-button>
+  </ion-item>
+  <ion-card>
+    <ion-item *ngFor="let x of projects">
+      <ion-label>
+        <h3>{{x.projects_name}}</h3>
+        <p>{{x.project_type}} - Price {{x.total_amount}}</p>
+      </ion-label>
+      <ion-button color="success" fill="outline" slot="end" (click)="details(x)">Details</ion-button>
+    </ion-item>
+    
+  </ion-card>
+
+  
+</ion-content>
+
+
+
