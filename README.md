@@ -3,8 +3,8 @@ Ionic framework details of project creation app
 
 Download files and start npm install
 
-# for serve to run 
+# For local database run 
 json-server --watch db.json
 
-#ionic run
+# Ionic run
 ionic serve
