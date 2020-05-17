@@ -9,6 +9,7 @@ import { MainrouteService } from './../mainroute.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
+
 export class Tab2Page implements OnInit {
   projects = []
   designers = [];

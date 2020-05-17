@@ -18,9 +18,10 @@ export class CreatePage implements OnInit {
   constructor( public toastController: ToastController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
     this.todo = this.formBuilder.group({
       projectName: ['', Validators.required],
+      projectCode: ['', Validators.required],
       projectStatus: ['', Validators.required],
       projectType: ['', Validators.required],
-      designerName: [''],
+      designerName: ['',  Validators.required],
       projectDescription: [''],
       projectDate: ['', Validators.required],
       projectTotalAmount: ['', Validators.required],
@@ -45,6 +46,7 @@ export class CreatePage implements OnInit {
     
     const createProject = {
       projects_name: this.todo.value.projectName,
+      projects_code: this.todo.value.projectCode,
       project_type: this.todo.value.projectStatus,
       total_amount: this.todo.value.projectTotalAmount,
       total_due: (this.todo.value.projectTotalAmount) - (this.todo.value.projectTotalPaid),
@@ -57,6 +59,7 @@ export class CreatePage implements OnInit {
     this.mainservice.postNewProject(createProject);
     console.log(createProject)
     this.router.navigate(['../']);
+    this.todo.reset();
   }
 
 }

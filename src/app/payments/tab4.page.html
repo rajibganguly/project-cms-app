@@ -5,9 +5,49 @@
 </ion-header>
 
 <ion-content>
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Payments</ion-title>
+      <ion-title size="large">Payment to Employee</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+<form [formGroup]="payment" (ngSubmit)="doPayForm()">
+  <ion-item>
+    <ion-label>Employee Name</ion-label>
+    <ion-select placeholder="Select One" formControlName="employeeName" (ionChange)="getProjectsOfAssignedDesigner($event)" >
+      <div *ngFor="let d of designers">
+        <ion-select-option [value]="d">{{d.designer}}</ion-select-option>
+      </div>
+    </ion-select>    
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Project</ion-label>
+    <ion-select placeholder="Select One" formControlName="projects">
+      <div *ngFor="let te of relivantProjects">
+        <ion-select-option [value]="te.projects_name">{{te.projects_name}}</ion-select-option>
+      </div>
+    </ion-select>
+  </ion-item> 
+  <ion-item>
+    <ion-label>Balance to pay </ion-label>
+    <ion-text><strong> {{duePayment}}</strong></ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Advance Paid <strong>Rs</strong></ion-label>
+    <ion-input type="number" formControlName="paidToDesignerAdvance"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-button type="submit" size="medium" [disabled]="!payment.valid" color="primary">Submit</ion-button>
+    <ion-button type="button" size="medium" href="../" color="secondary">Cancel</ion-button>
+  </ion-item>
+
+  
+  
+</form>
 </ion-content>
+
+
+    
+    
+  

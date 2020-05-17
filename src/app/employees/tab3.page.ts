@@ -13,6 +13,9 @@ import { MainrouteService } from '../mainroute.service';
 export class Tab3Page implements OnInit {
   private employe : FormGroup;
   designers = [];
+
+  flagEmployeeList = true;
+  flagEmploeeForm = false;
   
   constructor( public toastController: ToastController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
     this.employe = this.formBuilder.group({
@@ -43,8 +46,19 @@ export class Tab3Page implements OnInit {
       earned: this.employe.value.earned
     }
     this.mainservice.registerNewDesigners(regDesigner);
-    console.log(regDesigner)
     this.router.navigate(['../']);
+    this.employe.reset();
+  }
+
+  showEmployeeForm() {
+    this.flagEmployeeList = false;
+    this.flagEmploeeForm = true;
+  }
+
+  employeeFormCancel() {
+    console.log('cancel')
+    this.flagEmployeeList = true;
+    this.flagEmploeeForm = false;
   }
 
   deleteEmployee(x) {

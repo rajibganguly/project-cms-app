@@ -5,50 +5,56 @@
   },
   "projects": [
     {
-      "projects_name": "Logo for Morphis",
+      "projects_name": "Black Mumba Logo",
+      "projects_code": "BM0l1",
       "project_type": "logo",
-      "total_amount": 100,
-      "total_due": 50,
-      "total_paid": 50,
-      "date_of_register": "2020-05-10T18:30:00-00:00",
+      "total_amount": 200,
+      "total_due": 100,
+      "total_paid": 100,
+      "date_of_register": "2020-05-17T18:30:00-00:00",
       "project_status": null,
-      "designer": "D003",
-      "paid_to_designer": 20,
+      "designer": "RM002",
+      "paid_to_designer": 50,
       "id": 1
     },
     {
-      "projects_name": "Forward Postioning",
-      "project_type": "maskot",
-      "total_amount": 200,
-      "total_due": 150,
-      "total_paid": 50,
-      "date_of_register": "2020-05-10T18:30:00-00:00",
+      "projects_name": "Honey-Boney Desktop Maskot",
+      "projects_code": "HBDM012",
+      "project_type": "logo",
+      "total_amount": 300,
+      "total_due": 200,
+      "total_paid": 100,
+      "date_of_register": "2020-05-17T18:30:00-00:00",
       "project_status": null,
-      "designer": "D001",
-      "paid_to_designer": 30,
+      "designer": "DR44",
+      "paid_to_designer": 50,
       "id": 2
     },
     {
-      "projects_name": "Faced for the documentation willy",
-      "project_type": "logo",
-      "total_amount": 500,
-      "total_due": 480,
-      "total_paid": 20,
-      "date_of_register": "2020-05-10T18:30:00-00:00",
-      "project_status": null,
-      "designer": "D04",
-      "paid_to_designer": 22,
+      "designer": "Raveena Malik",
+      "designer_code": "RM002",
+      "date_of_register": "2020-05-17T13:08:27.013-00:00",
+      "paid_to_designer": 99,
       "id": 3
     }
   ],
   "designers": [
     {
-      "designer": "KolposRader",
-      "designer_code": "D1205",
-      "reward": 34,
-      "designer_reg_date": "2020-05-10T16:04:35.791-00:00",
-      "earned": 20,
+      "designer": "Raveena Malik",
+      "designer_code": "RM002",
+      "reward": 3,
+      "designer_reg_date": "2020-05-17T13:08:27.013-00:00",
+      "earned": 0,
       "id": 1
+    },
+    {
+      "designer": "David Rohman",
+      "designer_code": "DR44",
+      "reward": 3,
+      "designer_reg_date": "2020-05-17T13:13:31.382-00:00",
+      "earned": 0,
+      "id": 2
     }
-  ]
+  ],
+  "payments": []
 }

@@ -6,19 +6,22 @@
   </ion-toolbar>
 </ion-header>
 
-<div class="p3" *ngIf="designers.length > 0">
+<ion-content>
+  <ion-item>
+    <ion-button fill="outline" slot="end" size="small" (click)="showEmployeeForm()"><ion-icon name="add-outline"></ion-icon> Create Employee</ion-button>
+    </ion-item>
+
+
+<div class="p3" *ngIf="flagEmployeeList">
     <h4>Lists of Registered employees</h4>
     <div *ngFor="let de of designers" class="p1 custocard">
-      <p>
-        He is <ion-text color="danger"><strong>{{de.designer}}</strong></ion-text> and his registration date is <ion-text color="primary"><i>{{de.designer_reg_date}}</i></ion-text> 
-        and perfection count is <ion-text color="danger">{{de.earned}}</ion-text> by multiple projects.
-      </p>
-      <ion-button (click)="deleteEmployee(de)" color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      <ion-text><strong>{{de.designer}}</strong></ion-text>
+      <span class="p2"><ion-icon name="trash-outline" (click)="deleteEmployee(de)"></ion-icon></span>
     </div> 
 </div>
 
 
-<div class="p3">
+<div class="p3" *ngIf="flagEmploeeForm">
   <h4>New Employee Registration</h4>
   <form [formGroup]="employe" (ngSubmit)="addEmpForm()">
     <ion-item>
@@ -44,13 +47,12 @@
     </ion-item>  
     <ion-item>
       <ion-button type="submit" size="medium" [disabled]="!employe.valid" color="primary">Submit</ion-button>
-      <ion-button type="button" size="medium" href="../" color="secondary">Cancel</ion-button>
+      <ion-button type="button" size="medium" (click)="employeeFormCancel()" color="secondary">Cancel</ion-button>
     </ion-item> 
     
   </form>
   
-</div> 
-    
-    
+</div>     
+</ion-content>  
  
   

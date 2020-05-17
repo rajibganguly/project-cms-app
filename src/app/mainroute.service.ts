@@ -11,6 +11,7 @@ export class MainrouteService {
   // data as received
   projects = environment.databaselink + 'projects';
   designers = environment.databaselink + 'designers';
+  payments = environment.databaselink + 'payments';
 
   constructor(private http: HttpClient) { }
 
@@ -37,4 +38,19 @@ export class MainrouteService {
       console.log(error)
     });
   }
+
+  // Serach for Project withID
+  getProjectRelatesToDesigner(id: number) {
+    return this.http.get(this.projects + '?designer=' + id);
+  }
+
+  // post payments
+  postPaymentsAll(obj: object): void {
+    this.http.post<any>(this.payments, obj).subscribe((data)=> {
+      console.log(data);
+    }, (error) => {
+      console.log(error)
+    });
+  }
+
 }
