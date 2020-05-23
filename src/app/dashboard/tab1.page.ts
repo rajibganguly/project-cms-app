@@ -17,6 +17,9 @@ export class Tab1Page implements OnInit {
   numberOfDesigner: number;
   totalAmountArr = [];
   totalAmount: number;
+  totalPaidAmountArr = [];
+  totalPaidAmount: number;
+  totalProfit: number;
 
   constructor(private mainservice: MainrouteService, private router: Router) {}
 
@@ -32,12 +35,22 @@ export class Tab1Page implements OnInit {
       })
       this.projects.forEach((d) => {
         this.totalAmountArr.push(d.total_amount);
+        this.totalPaidAmountArr.push(d.total_paid);
       })
       
       if( this.totalAmountArr != undefined) {
         this.totalAmount = this.totalAmountArr.reduce((a, b) => {
             return a + b;
-        }, 0);  
+        }, 0);
+        this.mainservice.totalAmountsProjects(this.totalAmount);
+      }
+      if( this.totalPaidAmountArr != undefined) {
+        this.totalPaidAmount = this.totalPaidAmountArr.reduce((a, b) => {
+            return a + b;
+        }, 0);
+        this.totalProfit = this.totalAmount - this.totalPaidAmount;
+        this.mainservice.totalAmountsProfit(this.totalProfit);
+        console.log('done')
       }
     });
     

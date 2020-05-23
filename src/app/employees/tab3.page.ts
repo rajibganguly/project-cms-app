@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 
-import { ToastController } from '@ionic/angular';
+import { ToastController, AlertController, ModalController, NavParams } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { MainrouteService } from '../mainroute.service';
+import { EmployeePaymentComponent } from '../employee-payment/employee-payment.component';
 
 @Component({
   selector: 'app-tab3',
@@ -17,7 +18,7 @@ export class Tab3Page implements OnInit {
   flagEmployeeList = true;
   flagEmploeeForm = false;
   
-  constructor( public toastController: ToastController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
+  constructor( public toastController: ToastController, private alertCtrl: AlertController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
     this.employe = this.formBuilder.group({
       employeeName: ['', Validators.required],
       employeeCode: ['', Validators.required],
@@ -62,8 +63,13 @@ export class Tab3Page implements OnInit {
   }
 
   deleteEmployee(x) {
-    console.log(x)
+    const messages = `${x.designer} is associated with some project, so not possible to delete`;
+    alert(messages);
+    console.log(x);
   }
+
+ 
+  
 
 }
 

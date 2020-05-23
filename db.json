@@ -31,21 +31,44 @@
       "id": 2
     },
     {
-      "designer": "Raveena Malik",
-      "designer_code": "RM002",
-      "date_of_register": "2020-05-17T13:08:27.013-00:00",
-      "paid_to_designer": 99,
+      "projects_name": "Romio Must Die Porttrait",
+      "projects_code": "RMDP12",
+      "project_type": "logo",
+      "total_amount": 324,
+      "total_due": 202,
+      "total_paid": 122,
+      "date_of_register": "2020-05-23T18:30:00-00:00",
+      "project_status": null,
+      "designer": "MT033",
+      "paid_to_designer": 2,
       "id": 3
+    },
+    {
+      "projects_name": "Test Driver mobile",
+      "projects_code": "TDM123",
+      "project_type": "maskot",
+      "total_amount": 1000,
+      "total_due": 900,
+      "total_paid": 100,
+      "date_of_register": "2020-05-23T18:30:00-00:00",
+      "project_status": null,
+      "designer": "MT033",
+      "paid_to_designer": 11,
+      "id": 4
     }
   ],
   "designers": [
     {
+      "id": 1,
       "designer": "Raveena Malik",
       "designer_code": "RM002",
       "reward": 3,
       "designer_reg_date": "2020-05-17T13:08:27.013-00:00",
       "earned": 0,
-      "id": 1
+      "project": "Black Mumba Logo",
+      "total_amount": 200,
+      "total_paid": 100,
+      "paid_to_designer": 1222
     },
     {
       "designer": "David Rohman",
@@ -54,7 +77,26 @@
       "designer_reg_date": "2020-05-17T13:13:31.382-00:00",
       "earned": 0,
       "id": 2
+    },
+    {
+      "id": 3,
+      "designer": "Modde Toddler",
+      "designer_code": "MT033",
+      "reward": 1,
+      "designer_reg_date": "2020-05-23T11:50:02.597-00:00",
+      "earned": 1,
+      "project": "Romio Must Die Porttrait",
+      "total_amount": 324,
+      "total_paid": 122,
+      "paid_to_designer": 202
     }
   ],
-  "payments": []
+  "payments": [],
+  "amount": [
+    {
+      "total_amount_profit": 1402,
+      "total_amount_projects": 1824,
+      "id": 1
+    }
+  ]
 }
