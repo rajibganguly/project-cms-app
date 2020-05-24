@@ -14,9 +14,20 @@
 
 <div class="p3" *ngIf="flagEmployeeList">
     <h4>Lists of Registered employees</h4>
-    <div *ngFor="let de of designers" class="p1 custocard">
-      <ion-text><strong>{{de.designer}}</strong></ion-text>
-      <span class="p2"><ion-icon name="trash-outline" (click)="deleteEmployee(de)"></ion-icon></span>
+    
+    <div *ngFor="let de of designers" class="p1">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>
+            <h3>{{de.designer}}</h3>            
+            <ion-toolbar>
+              <p>TOTAL AMOUNT: <span>{{de.total_amount}}</span></p>
+              <p>PENDING AMOUNT: <span>{{de.total_amount}} - {{de.total_paid}}</span></p>
+              <ion-button slot="end" (click)="deleteEmployee(de)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+            </ion-toolbar>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>      
     </div> 
 </div>
 

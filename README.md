@@ -1,5 +1,5 @@
 # projectCMSApp
-Ionic framework details of project creation app
+Angular, Ionic framework cordova based Project creation apps, where projects creation, employee creation, assign projects and payments all included one app.
 
 Download files and start npm install
 

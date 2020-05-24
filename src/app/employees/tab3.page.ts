@@ -18,7 +18,7 @@ export class Tab3Page implements OnInit {
   flagEmployeeList = true;
   flagEmploeeForm = false;
   
-  constructor( public toastController: ToastController, private alertCtrl: AlertController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
+  constructor( public toastController: ToastController, public alertCtrl: AlertController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
     this.employe = this.formBuilder.group({
       employeeName: ['', Validators.required],
       employeeCode: ['', Validators.required],
@@ -63,8 +63,23 @@ export class Tab3Page implements OnInit {
   }
 
   deleteEmployee(x) {
-    const messages = `${x.designer} is associated with some project, so not possible to delete`;
-    alert(messages);
+    const messages = `${x.designer} is associated with some project, so asked to administrator.`;
+    this.alertCtrl.create({
+      header: "Want to delete employee?",
+      message: messages,
+      buttons: [{
+        text: "Agreed",
+        handler: () => {
+          console.log("not possible delete")
+        }
+      }, {
+        text: "Cancel",
+        role: "Cancel"
+      }]
+    }).then((e) => {
+      e.present();
+    })
+    // alert(messages);
     console.log(x);
   }
 
