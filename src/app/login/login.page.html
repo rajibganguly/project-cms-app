@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <form [formGroup]="register" (ngSubmit)="doRegister()" autocomplete="off">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="signinemail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password"  formControlName="signinpassword"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-button type="submit" size="medium" [disabled]="!register.valid" color="primary">
+              Submit 
+              <ion-spinner name="dots" *ngIf="spinnerShow"></ion-spinner>
+            </ion-button>
+            <ion-button type="button" size="medium" href="./" color="secondary">Cancel</ion-button>
+          </ion-item>
+         </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

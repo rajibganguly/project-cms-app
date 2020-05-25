@@ -19,10 +19,10 @@
       <ion-item-sliding>
         <ion-item>
           <ion-label>
-            <h3>{{de.designer}}</h3>            
+            <h3 class="name-emp">{{de.designer}}</h3>            
             <ion-toolbar>
-              <p>TOTAL AMOUNT: <span>{{de.total_amount}}</span></p>
-              <p>PENDING AMOUNT: <span>{{de.total_amount}} - {{de.total_paid}}</span></p>
+              <p *ngIf="de.total_amount">TOTAL AMOUNT: <span>{{de.total_amount}}</span></p>
+              <p *ngIf="de.total_paid">PENDING AMOUNT: <span>{{de.total_amount - de.total_paid}} </span></p>
               <ion-button slot="end" (click)="deleteEmployee(de)"><ion-icon name="trash-outline"></ion-icon></ion-button>
             </ion-toolbar>
           </ion-label>

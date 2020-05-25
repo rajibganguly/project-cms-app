@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MainrouteService } from '../mainroute.service';
 import { EmployeePaymentComponent } from '../employee-payment/employee-payment.component';
 
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
