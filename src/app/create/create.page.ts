@@ -51,6 +51,7 @@ export class CreatePage implements OnInit {
       total_amount: this.todo.value.projectTotalAmount,
       total_due: (this.todo.value.projectTotalAmount) - (this.todo.value.projectTotalPaid),
       total_paid: this.todo.value.projectTotalPaid,
+      project_started: false,
       date_of_register: this.todo.value.projectDate,
       project_status: null,
       designer: this.todo.value.designerName,

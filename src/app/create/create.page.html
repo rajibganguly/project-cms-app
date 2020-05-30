@@ -1,14 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button slot="end" size="small" href="/tabs/projects">Back</ion-button>
+    <ion-buttons slot="start">
+      <ion-button slot="start" size="small" href="/tabs/projects"><ion-icon name="return-up-back-outline"></ion-icon></ion-button>
     </ion-buttons>
     <ion-title>Create Project</ion-title>
   </ion-toolbar>
 
 
     
-    
+  <ion-content [fullscreen]="true">
+    <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
+      <ion-col [style.background]="backgroundVar" [style.color]="colorVar">
+          
   <form [formGroup]="todo" (ngSubmit)="logForm()">
     <ion-item>
       <ion-label>Project Name</ion-label>
@@ -73,6 +76,9 @@
     </ion-item>
     
   </form>
+      </ion-col>
+    </ion-row>
+  </ion-content>
     
     
  

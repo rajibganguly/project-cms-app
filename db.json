@@ -15,6 +15,7 @@
       "project_status": null,
       "designer": "RM002",
       "paid_to_designer": 50,
+      "project_started": true,
       "id": 1
     },
     {
@@ -28,6 +29,7 @@
       "project_status": null,
       "designer": "DR44",
       "paid_to_designer": 50,
+      "project_started": true,
       "id": 2
     },
     {
@@ -41,6 +43,7 @@
       "project_status": null,
       "designer": "MT033",
       "paid_to_designer": 2,
+      "project_started": false,
       "id": 3
     },
     {
@@ -54,6 +57,7 @@
       "project_status": null,
       "designer": "MT033",
       "paid_to_designer": 11,
+      "project_started": false,
       "id": 4
     }
   ],

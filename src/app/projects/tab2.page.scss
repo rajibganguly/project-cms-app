@@ -1,3 +1,20 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+.intron {
+  font-size: 13px;
+  font-style: italic;
+  color: #666;
+}
+.drop-to-start {
+  border: 1px solid #ccc;
+  padding: 17px;  
+  background: #f0f0f0;
+  border-radius: 5px;
+    .inn-card {
+      box-shadow: 0 0 3px #666;
+      h3, p {
+        color: #ccc;
+      }
+    }
+}

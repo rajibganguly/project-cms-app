@@ -20,9 +20,25 @@ export class MainrouteService {
   constructor(private http: HttpClient) { }
 
   // set for store edit employee
-  public editEmployeeArr: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  editEmployee$: Observable<any> = this.editEmployeeArr.asObservable();
+  public currentThemeData: BehaviorSubject<object> = new BehaviorSubject<object>({});
+  getCurrentThemeData$: Observable<any> = this.currentThemeData.asObservable();
 
+  // Theme default
+  public defaltTheme = {
+    colorVar: '#333',
+    backgroundVar: 'white'
+  }
+
+  // Theme dark
+  public darkTheme = {
+    colorVar: '#fff',
+    backgroundVar: '#333'
+  }
+
+  // SETUP THEME
+  // currentTheme() {
+  //   this.editEmployeeArr ;
+  // }
   
 
   // GET ALL PROJECTS
@@ -37,6 +53,30 @@ export class MainrouteService {
     }, (error) => {
       console.log(error)
     });
+  }
+  // PROJECT UPDATE
+  projectsUpworks(data: object) {
+    if (data['project_started'] === false) {
+      return this.http.patch(`${this.projects}/${data.id}`, {'project_started': true}, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'        
+        })
+      }).subscribe(
+        (success) => console.log(success),
+        (error) => console.log(error)
+      );
+    } else {
+      return this.http.patch(`${this.projects}/${data.id}`, {'project_started': false}, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'        
+        })
+      }).subscribe(
+        (success) => console.log(success),
+        (error) => console.log(error)
+      );
+
+    }
+    
   }
 
   // GET ALL DESIGNERS

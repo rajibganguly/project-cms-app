@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ElementRef } from '@angular/core';
 import { MainrouteService } from '../mainroute.service';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,10 @@ export class Tab1Page implements OnInit {
   totalPaidAmount: number;
   totalProfit: number;
 
-  constructor(private mainservice: MainrouteService, private router: Router) {}
+  colorVar;
+  backgroundVar;
+
+  constructor(private mainservice: MainrouteService, private router: Router, private elementRef:ElementRef) {}
 
   ngOnInit() {
     this.mainservice.getAllProjects().subscribe((d) => {
@@ -54,9 +57,16 @@ export class Tab1Page implements OnInit {
       }
     });
     
-    
+    this.mainservice.currentThemeData.subscribe((e)=> {
+      console.log(e);
+      this.colorVar = e['color'];
+      this.backgroundVar = e['background'];
+    });
     
   }
+
+  
+
   
   
 

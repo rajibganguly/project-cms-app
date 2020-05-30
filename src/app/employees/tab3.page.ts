@@ -18,6 +18,9 @@ export class Tab3Page implements OnInit {
 
   flagEmployeeList = true;
   flagEmploeeForm = false;
+
+  colorVar;
+  backgroundVar;
   
   constructor( public toastController: ToastController, public alertCtrl: AlertController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
     this.employe = this.formBuilder.group({
@@ -34,6 +37,11 @@ export class Tab3Page implements OnInit {
       this.designers = data;
       console.log(this.designers);
     })
+
+    this.mainservice.currentThemeData.subscribe((e)=> {
+      this.colorVar = e['color'];
+      this.backgroundVar = e['background'];
+    });
     
   }
 

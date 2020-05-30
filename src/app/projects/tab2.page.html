@@ -7,23 +7,83 @@
   
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-item>
-  <ion-button fill="outline" slot="end" size="small" href="/create"><ion-icon name="add-outline"></ion-icon> Create Project</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button fill="outline" slot="end" size="small" href="/create"><ion-icon name="add-outline"></ion-icon> Create Project</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-item>
-  <ion-card *ngIf="projects.length > 0">
-    <ion-item *ngFor="let x of projects">
-      <ion-label>
-        <h3>{{x.projects_name}}</h3>
-        <p>{{x.project_type}} - Price {{x.total_amount}}</p>
-      </ion-label>
-      <ion-button color="success" fill="outline" slot="end" (click)="details(x)">Details</ion-button>
-    </ion-item>
-    
-  </ion-card>
-  <div *ngIf="projects.length == 0">
-    <p class="p4">No project yet!</p>
-</div>
+  <ion-item>
+    <ion-grid>
+    <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
+      <ion-col> 
+        <ion-text>RUNNING PROJECTs</ion-text>
+        <ion-text><p class="intron">Drop your project here to start. <ion-icon name="arrow-down-outline"></ion-icon></p></ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
+      <ion-col
+        class="drop-to-start" 
+        (drop)="drop($event)" 
+        (dragover)="allowDrop($event)">   
+        <ion-card *ngFor="let x of projects" style="cursor: pointer;" [style.background]="backgroundVar" [style.color]="colorVar">
+          <ion-item 
+          *ngIf="x.project_started"
+          class="inn-card"
+          draggable="true" 
+          (dragstart)="drag($event, x)" 
+          id={{x.id}}
+          (dragend)="details(x)">
+            <ion-label>
+              <h3>{{x.projects_name}}</h3>
+              <p>{{x.project_type}} - Price {{x.total_amount}}</p>
+              <small class="blink" *ngIf="x.project_started"><ion-icon name="trending-up-outline"></ion-icon></small>
+              <small class="blink" *ngIf="!x.project_started"><ion-icon name="trending-down-outline"></ion-icon></small>
+            </ion-label>
+          </ion-item>      
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-row *ngIf="projects.length > 0">
+    <ion-col
+    (drop)="drop($event)" 
+    (dragover)="allowDrop($event)"
+    [style.background]="backgroundVar" 
+    [style.color]="colorVar"
+    >
+      <ion-card *ngFor="let x of projects" style="cursor: pointer;" [style.background]="backgroundVar" [style.color]="colorVar">
+        <ion-item 
+        *ngIf="!x.project_started"
+        class="inn-card"
+        draggable="true" 
+        (dragstart)="drag($event, x)" 
+        id={{x.id}}
+        (dragend)="details(x)"
+        >
+          <ion-label>
+            <h3>{{x.projects_name}}</h3>
+            <p>{{x.project_type}} - Price {{x.total_amount}}</p>
+            <small *ngIf="x.projectStarted"><ion-icon name="trending-up-outline"></ion-icon></small>
+            <small *ngIf="!x.projectStarted"><ion-icon name="trending-down-outline"></ion-icon></small>
+          </ion-label>
+          <!-- <ion-button color="success" fill="outline" slot="end" >Details</ion-button> -->
+        </ion-item>      
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-item *ngIf="projects.length == 0">
+    <div>
+      <p class="p4">No project yet!</p>
+    </div>
+  </ion-item>
   
 </ion-content>
 

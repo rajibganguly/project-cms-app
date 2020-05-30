@@ -15,34 +15,29 @@
       <p>CEO Vijay Babu</p>
     </ion-label>
   </ion-item>
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Dashboard</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-  <ion-card>
+  <ion-card [style.background]="backgroundVar" [style.color]="colorVar">
     <ion-card-header>
       <ion-card-subtitle>Number of Projects</ion-card-subtitle>
-      <ion-card-title>{{numberOfProjects}}</ion-card-title>
+      <ion-card-title [style.color]="colorVar">{{numberOfProjects}}</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card>
+  <ion-card [style.background]="backgroundVar" [style.color]="colorVar">
     <ion-card-header>
       <ion-card-subtitle>Number of Employees</ion-card-subtitle>
-      <ion-card-title>{{numberOfDesigner}}</ion-card-title>
+      <ion-card-title [style.color]="colorVar">{{numberOfDesigner}}</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card>
+  <ion-card [style.background]="backgroundVar" [style.color]="colorVar">
     <ion-card-header>
       <ion-card-subtitle>Total Project Amount</ion-card-subtitle>
-      <ion-card-title>$ {{totalAmount}}</ion-card-title>
+      <ion-card-title [style.color]="colorVar">$ {{totalAmount}}</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card>
+  <ion-card [style.background]="backgroundVar" [style.color]="colorVar">
     <ion-card-header>
       <ion-card-subtitle>Total Profit</ion-card-subtitle>
-      <ion-card-title>$ {{totalProfit}}</ion-card-title>
+      <ion-card-title [style.color]="colorVar">$ {{totalProfit}}</ion-card-title>
     </ion-card-header>
-  </ion-card>
+  </ion-card >
   <!-- <app-explore-container name="news page"></app-explore-container> -->
 </ion-content>
