@@ -9,12 +9,22 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>
-      <h2>Graphix Creations</h2>
-      <p>CEO Vijay Babu</p>
-    </ion-label>
-  </ion-item>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <img src="./assets/icon/logo.png" alt="planzone" style="width: 12rem;" />
+        <ion-button style="float:right" (click)="logOut()" end>Logout</ion-button> 
+      </ion-title>
+      <ion-buttons end> </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><span style="color:#ccc">Welcome to</span></ion-card-title>
+      <ion-card-subtitle color="dark" style="text-transform: uppercase;display: inline;">{{clientSign}}</ion-card-subtitle>      
+    </ion-card-header>
+  </ion-card>
   <ion-card [style.background]="backgroundVar" [style.color]="colorVar">
     <ion-card-header>
       <ion-card-subtitle>Number of Projects</ion-card-subtitle>

@@ -33,21 +33,6 @@ export class Tab2Page implements OnInit {
     
   }
 
-  // drop(ev) {
-  //   ev.preventDefault();
-  //   var data = ev.dataTransfer.getData("text");
-  //   ev.target.appendChild(document.getElementById(data));
-    
-  // }
-
-  // allowDrop(ev) {
-  //   ev.preventDefault();
-  // }
-
-  // drag(ev) {
-  //   ev.dataTransfer.setData("text", ev.target.id);
-    
-  // }
   themeChecker(ev) {
     console.log(ev.detail.checked)
     if(ev.detail.checked === true) {
@@ -59,10 +44,13 @@ export class Tab2Page implements OnInit {
     }
   }
 
-  details(row:object) {
-    this.mainservice.projectsUpworks(row);
-    this.router.navigate(['/']);
-    location.reload();
+  // details(row:object) {
+  //   this.mainservice.projectsUpworks(row);
+  //   this.router.navigate(['/']);
+  //   location.reload();
+  // }
+  logOut() {
+    this.router.navigate(['/login']);
   }
 
   

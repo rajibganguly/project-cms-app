@@ -5,7 +5,7 @@ import { ToastController, AlertController, ModalController, NavParams } from '@i
 import { Router } from '@angular/router';
 import { MainrouteService } from '../mainroute.service';
 import { EmployeePaymentComponent } from '../employee-payment/employee-payment.component';
-
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab3',
@@ -34,6 +34,7 @@ export class Tab3Page implements OnInit {
 
   ngOnInit() {
     this.mainservice.getAllDesigners().subscribe((data) => {
+      console.log(data)
       this.designers = data;
       console.log(this.designers);
     })
@@ -53,8 +54,10 @@ export class Tab3Page implements OnInit {
       designer_code: this.employe.value.employeeCode,
       reward: this.employe.value.rewardPoint,
       designer_reg_date: this.employe.value.employeeDate,
+      fullname: localStorage.getItem('fullName'),
       earned: this.employe.value.earned
     }
+    console.log(regDesigner);
     this.mainservice.registerNewDesigners(regDesigner);
     this.router.navigate(['../']);
     this.employe.reset();
@@ -71,8 +74,8 @@ export class Tab3Page implements OnInit {
     this.flagEmploeeForm = false;
   }
 
-  deleteEmployee(x) {
-    const messages = `${x.designer} is associated with some project, so asked to administrator.`;
+  deleteEmployee(x: object, index: number) {
+    const messages = `${x['designer']} is associated with some project, so asked to administrator.`;
     this.alertCtrl.create({
       header: "Want to delete employee?",
       message: messages,
@@ -88,8 +91,13 @@ export class Tab3Page implements OnInit {
     }).then((e) => {
       e.present();
     })
-    // alert(messages);
     console.log(x);
+  }
+
+
+
+  logOut() {
+    this.router.navigate(['/login']);
   }
 
  

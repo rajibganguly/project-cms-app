@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewChecked, ElementRef } from '@angular/core';
 import { MainrouteService } from '../mainroute.service';
 import { Router } from '@angular/router';
 
-
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab1',
@@ -23,16 +23,31 @@ export class Tab1Page implements OnInit {
 
   colorVar;
   backgroundVar;
+  userDetailsSections;
+  clientSign;
 
-  constructor(private mainservice: MainrouteService, private router: Router, private elementRef:ElementRef) {}
+  constructor(private mainservice: MainrouteService, private router: Router, private elementRef:ElementRef) {
+    this.userDetailsSections = JSON.parse(localStorage.getItem('locData'));
+    console.log(this.userDetailsSections);
+    this.clientSign = this.userDetailsSections['email'];
+    const fisrtObj = this.clientSign.split('@');
+    this.clientSign = fisrtObj[0];
+    localStorage.setItem('fullName', this.clientSign);
+  }
 
   ngOnInit() {
-    this.mainservice.getAllProjects().subscribe((d) => {
+    this.mainservice.getAllProjects().pipe(
+      map(x => x)
+    ).subscribe((d) => {
       this.projects = d;
+      console.log(d);
       if (this.projects != undefined) {
         this.numberOfProjects = this.projects.length;
       }
-      this.mainservice.getAllDesigners().subscribe((d) => {
+      this.mainservice.getAllDesigners().pipe(
+        map(x => x)
+      ).subscribe((d) => {
+        console.log(d);
         this.designers = d;
         this.numberOfDesigner = this.designers.length;
       })
@@ -53,20 +68,22 @@ export class Tab1Page implements OnInit {
         }, 0);
         this.totalProfit = this.totalAmount - this.totalPaidAmount;
         this.mainservice.totalAmountsProfit(this.totalProfit);
-        console.log('done')
       }
     });
     
     this.mainservice.currentThemeData.subscribe((e)=> {
-      console.log(e);
       this.colorVar = e['color'];
       this.backgroundVar = e['background'];
     });
+
+    
     
   }
 
   
-
+  logOut() {
+    this.router.navigate(['/login']);
+  }
   
   
 

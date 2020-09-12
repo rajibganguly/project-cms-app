@@ -40,14 +40,20 @@ export class Tab4Page implements OnInit {
     })
   }
 
-  getProjectsOfAssignedDesigner(d) {
-    console.log(d.target.value['id']);
+  getProjectsOfAssignedDesigner(d: any) {
+    console.log(d);
     this.relivantProjects = [];
-    this.mainservice.getProjectRelatesToDesigner(d.target.value['designer_code']).subscribe((data) => {
-      if (data !== null) this.relivantProjects = data;
-      console.log(this.relivantProjects[0]);
-      if (this.relivantProjects.length > 0) this.duePayment = this.relivantProjects[0].total_due;
-      // this.payment.value.projects.reset();
+    this.mainservice.getProjectRelatesToDesigner(d.target.value['designer']).subscribe((data) => {
+      console.log(data);
+      if (data !== null) {
+        this.relivantProjects = data;
+        console.log('this.relivantProjects', this.relivantProjects);
+      }      
+      if (this.relivantProjects.length > 0) {
+        this.duePayment = this.relivantProjects[0].total_due;
+        this.payment.value.projects.reset();
+      }
+        
     });
 
   }
@@ -63,18 +69,21 @@ export class Tab4Page implements OnInit {
       earned: this.payment.value.employeeName.earned,
       project: this.payment.value.projects,
       total_amount: this.relivantProjects[0].total_amount,
-      total_paid: this.relivantProjects[0].total_paid,
-      paid_to_designer: this.payment.value.paidToDesignerAdvance
+      total_paid:  this.relivantProjects[0].total_paid,
+      paid_to_designer: (this.relivantProjects[0].total_due) - (this.payment.value.paidToDesignerAdvance)
     }
     console.log(this.payment.value);
     this.mainservice.putPaymentsAll(createPayments);
     console.log(createPayments)
-    this.router.navigate(['/']);
-
-
-
+    this.router.navigate(['/tabs/dashboard']);
     this.payment.reset();
 
+  }
+
+
+  logOut() {
+    this.router.navigate(['/login']);
+    
   }
 
 }

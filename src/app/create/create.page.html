@@ -9,10 +9,18 @@
 
     
   <ion-content [fullscreen]="true">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <img src="./assets/icon/logo.png" alt="planzone" style="width: 12rem;" />
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
     <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
       <ion-col [style.background]="backgroundVar" [style.color]="colorVar">
           
-  <form [formGroup]="todo" (ngSubmit)="logForm()">
+  <form [formGroup]="createProjectGroup" (ngSubmit)="logForm()">
     <ion-item>
       <ion-label>Project Name</ion-label>
       <ion-input type="text" formControlName="projectName"></ion-input>
@@ -40,7 +48,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="YYYY/MM/DD" value="2020-05-10" display-timezone="utc" formControlName="projectDate"></ion-datetime>
+      <ion-datetime displayFormat="YYYY/MM/DD" value="2020-07-15" display-timezone="utc" formControlName="projectDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
@@ -57,7 +65,7 @@
       <ion-label>Designer`s Name</ion-label>
       <ion-select placeholder="Select One" formControlName="designerName">
         <div *ngFor="let d of designers">
-          <ion-select-option [value]="d.designer_code">{{d.designer}}</ion-select-option>
+          <ion-select-option [value]="d.designer">{{d.designer}}</ion-select-option>
         </div>
       </ion-select>
     </ion-item> 
@@ -71,7 +79,7 @@
       <ion-input type="text" formControlName="projectDescription"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-button type="submit" size="medium" [disabled]="!todo.valid" color="primary">Submit</ion-button>
+      <ion-button type="submit" size="medium" [disabled]="!createProjectGroup.valid" color="primary">Submit</ion-button>
       <ion-button type="button" size="medium" href="../" color="secondary">Cancel</ion-button>
     </ion-item>
     

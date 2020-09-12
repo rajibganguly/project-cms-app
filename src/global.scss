@@ -60,6 +60,10 @@ p {
     -webkit-animation: blinkingText 1.2s infinite;
 }
 
+ion-header {
+    background: rgba(190, 232, 248, 0.4);
+}
+
 @keyframes blinkingText{
     0%{     opacity: 0; }
     49%{    opacity: 0; }
@@ -67,5 +71,8 @@ p {
     99%{    opacity: 0; }
     100%{   opacity: 0; }
 }
+
+
+
 
 

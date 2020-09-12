@@ -11,12 +11,12 @@ import { MainrouteService } from '../mainroute.service';
   styleUrls: ['./create.page.scss'],
 })
 export class CreatePage implements OnInit {
-  private todo : FormGroup;
+  private createProjectGroup : FormGroup;
   projects = []
   designers = [];
   
   constructor( public toastController: ToastController, private mainservice: MainrouteService, private formBuilder: FormBuilder, private router: Router ) {
-    this.todo = this.formBuilder.group({
+    this.createProjectGroup = this.formBuilder.group({
       projectName: ['', Validators.required],
       projectCode: ['', Validators.required],
       projectStatus: ['', Validators.required],
@@ -36,31 +36,30 @@ export class CreatePage implements OnInit {
     });
     this.mainservice.getAllDesigners().subscribe((data) => {
       this.designers = data;
-      console.log(this.designers);
     })
     
   }
 
 
-  logForm(){
-    
+  logForm(){    
     const createProject = {
-      projects_name: this.todo.value.projectName,
-      projects_code: this.todo.value.projectCode,
-      project_type: this.todo.value.projectStatus,
-      total_amount: this.todo.value.projectTotalAmount,
-      total_due: (this.todo.value.projectTotalAmount) - (this.todo.value.projectTotalPaid),
-      total_paid: this.todo.value.projectTotalPaid,
+      projects_name: this.createProjectGroup.value.projectName,
+      projects_code: this.createProjectGroup.value.projectCode,
+      project_type: this.createProjectGroup.value.projectStatus,
+      total_amount: this.createProjectGroup.value.projectTotalAmount,
+      total_due: (this.createProjectGroup.value.projectTotalAmount) - (this.createProjectGroup.value.projectTotalPaid),
+      total_paid: this.createProjectGroup.value.projectTotalPaid,
       project_started: false,
-      date_of_register: this.todo.value.projectDate,
+      date_of_register: this.createProjectGroup.value.projectDate,
       project_status: null,
-      designer: this.todo.value.designerName,
-      paid_to_designer: this.todo.value.paidToDesigner
+      designer: this.createProjectGroup.value.designerName,
+      paid_to_designer: this.createProjectGroup.value.paidToDesigner,
+      fullname: localStorage.getItem('fullName')
     }
+    console.log(createProject);
     this.mainservice.postNewProject(createProject);
-    console.log(createProject)
     this.router.navigate(['../']);
-    this.todo.reset();
+    this.createProjectGroup.reset();
   }
 
 }

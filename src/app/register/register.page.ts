@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-// import { LoaderComponent } from '../loader.component';
 
 // import { AngularFireAuth } from '@angular/fire/auth';
 // import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage  implements OnInit {
+export class RegisterPage implements OnInit {
   pageMessage: string;
-  loginPage: boolean = true;
-  loginForm: FormGroup;
+  regPage: boolean = true;
+  regForm: FormGroup;
   loader: boolean = true;
   validation_messages = {
     'password': [
@@ -36,12 +35,14 @@ export class LoginPage  implements OnInit {
     ]
   }
 
-  constructor(
+   constructor(
     private fb: FormBuilder, 
+    // private af: AngularFireAuth, 
+    // private afs: AngularFirestore,
     private authservice: AuthService,
     private route: Router
-  ) { 
-    this.loginForm = this.fb.group({
+   ) {
+    this.regForm = this.fb.group({
       emailId: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')
@@ -49,30 +50,34 @@ export class LoginPage  implements OnInit {
       password: ['', Validators.compose([
         Validators.maxLength(32),
         Validators.minLength(8),
-        Validators.required,
+        Validators.required
         // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$') //this is for the letters (both uppercase and lowercase) and numbers validation
      ])]
     });
-  }
+   }
 
-  ngOnInit() {
+   ngOnInit() {
     this.authservice.obsMessage.subscribe(data => {
       this.pageMessage = data.split('_').join(' ');
-      this.loader = false;
+      this.loader = true;
     })
   }
 
   // login form
-  loginFormValue() {
-    this.authservice.loginWithUserEmailPassword(this.loginForm.value.emailId, this.loginForm.value.password);
-    this.loginForm.reset();
-    this.route.navigate(['/tabs/dashboard']);
+  regFormValue() {
+    this.authservice.signUpWithEmailPassword(this.regForm.value.emailId, this.regForm.value.password);
+    this.regForm.reset();
+    this.route.navigate(['/login']);
   }
 
-  registerPage() {    
-    this.route.navigate(['/register']);
+  loginPage() {
+    this.route.navigate(['/login']);
   }
 
-  
 
 }
+
+
+
+
+

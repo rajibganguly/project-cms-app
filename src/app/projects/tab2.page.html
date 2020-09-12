@@ -1,33 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Projects 
-    </ion-title>  
+      Projects
+    </ion-title>
   </ion-toolbar>
-  
 </ion-header>
 
 
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <img src="./assets/icon/logo.png" alt="planzone" style="width: 12rem;" />
+        <ion-button style="float:right" (click)="logOut()" end>Logout</ion-button> 
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-item>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button fill="outline" slot="end" size="small" href="/create"><ion-icon name="add-outline"></ion-icon> Create Project</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-button fill="outline" slot="end" size="small" href="/create"><ion-icon name="add-outline"></ion-icon> Create Project</ion-button>
   </ion-item>
-  <ion-item>
-    <ion-grid>
-    <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
+  <!-- <ion-item>
+    <ion-grid> -->
+    <!-- <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
       <ion-col> 
         <ion-text>RUNNING PROJECTs</ion-text>
         <ion-text><p class="intron">Drop your project here to start. <ion-icon name="arrow-down-outline"></ion-icon></p></ion-text>
       </ion-col>
-    </ion-row>
-    <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
+    </ion-row> -->
+    <!-- <ion-row [style.background]="backgroundVar" [style.color]="colorVar">
       <ion-col
         class="drop-to-start" 
         (drop)="drop($event)" 
@@ -49,30 +51,29 @@
           </ion-item>      
         </ion-card>
       </ion-col>
-    </ion-row>
-    </ion-grid>
-  </ion-item>
+    </ion-row> -->
+    <!-- </ion-grid>
+  </ion-item> -->
   <ion-row *ngIf="projects.length > 0">
     <ion-col
-    (drop)="drop($event)" 
-    (dragover)="allowDrop($event)"
     [style.background]="backgroundVar" 
     [style.color]="colorVar"
     >
       <ion-card *ngFor="let x of projects" style="cursor: pointer;" [style.background]="backgroundVar" [style.color]="colorVar">
         <ion-item 
-        *ngIf="!x.project_started"
         class="inn-card"
-        draggable="true" 
-        (dragstart)="drag($event, x)" 
         id={{x.id}}
-        (dragend)="details(x)"
         >
           <ion-label>
-            <h3>{{x.projects_name}}</h3>
-            <p>{{x.project_type}} - Price {{x.total_amount}}</p>
-            <small *ngIf="x.projectStarted"><ion-icon name="trending-up-outline"></ion-icon></small>
-            <small *ngIf="!x.projectStarted"><ion-icon name="trending-down-outline"></ion-icon></small>
+            <ion-row>
+              <ion-col col-6>
+                <h2 class="ion-text-uppercase" color="primary">{{x.projects_name}}</h2>
+                <p>{{x.project_type}} - Price {{x.total_amount}}</p>
+              </ion-col>
+              <ion-col col-6 class="ion-text-end">
+                <h2><ion-icon name="boat"></ion-icon> {{x.designer}}</h2>
+              </ion-col>
+            </ion-row>
           </ion-label>
           <!-- <ion-button color="success" fill="outline" slot="end" >Details</ion-button> -->
         </ion-item>      
